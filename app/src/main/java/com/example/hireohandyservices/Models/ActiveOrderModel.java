@@ -8,6 +8,7 @@ public class ActiveOrderModel {
     private String jobPhone;
     private String jobPrice;
 
+
     public ActiveOrderModel(int img,String status, String jobName, String jobLocation, String jobPhone, String jobPrice) {
         this.img = img;
         this.status = status;
