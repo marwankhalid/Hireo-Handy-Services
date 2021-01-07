@@ -3,12 +3,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.SearchFragmentPage">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="hello_Search_fragment" />
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="10">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_search_key"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7.5"
+                    android:layout_gravity="center"
+                    android:hint="Search for Jobs"
+                    android:layout_marginLeft="20dp"
+                    app:startIconDrawable="@drawable/ic_baseline_search_24">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="3dp"
+                        android:inputType="text">
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_search_24"
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/shape_seacrh_btn"/>
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/message_user_img"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:src="@drawable/ic_filter"
+                    app:civ_border_color="#5A5A5A"
+                    android:padding="10dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    app:civ_border_width="1dp"
+
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/wait_anim"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_vertical"
+                app:lottie_fileName="loading.json"
+                app:lottie_autoPlay="true"
+                android:visibility="gone"
+                app:lottie_loop="true"/>
+
+
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/search_refreshView"
+                >
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+
+                    android:id="@+id/search_recyclerView"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/connection_error"
+                android:visibility="visible"
+                android:layout_gravity="center"
+
+                >
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ic_connection_error"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Oops! Connection Error"
+                    android:layout_gravity="center"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>
