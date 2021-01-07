@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.hireohandyservices.Fragments.BlankFragment;
 import com.example.hireohandyservices.Fragments.JobsFragment;
 import com.example.hireohandyservices.Fragments.OrderFragment;
+import com.example.hireohandyservices.Fragments.SettingFragment;
 import com.example.hireohandyservices.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -101,11 +102,10 @@ public class HomeActivity extends AppCompatActivity {
             else if(fragment_flag==2)
             {
                 fragment = new OrderFragment();
-                Toast.makeText(this, "Order History", Toast.LENGTH_SHORT).show();
             }
             else if(fragment_flag==3)
             {
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+                fragment = new SettingFragment();
             }
 
             FragmentManager fm=getSupportFragmentManager();
@@ -139,17 +139,17 @@ public class HomeActivity extends AppCompatActivity {
                         FragmentTransaction ft=fm.beginTransaction();
                         ft.replace(R.id.main_fragment,fragment);
                         ft.commit();
-                        Toast.makeText(HomeActivity.this, "Order History", Toast.LENGTH_SHORT).show();
+
                         }
                         else if (menuItem.getItemId()==R.id.nav_settings)
                         {
-//                        fragment_flag=3;
-//                        fragment=new ContractsFragment();
-//                        FragmentManager fm=getSupportFragmentManager();
-//                        FragmentTransaction ft=fm.beginTransaction();
-//                        ft.replace(R.id.main_fragment,fragment);
-//                        ft.commit();
-                            Toast.makeText(HomeActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+                        fragment_flag=3;
+                        fragment=new SettingFragment();
+                        FragmentManager fm=getSupportFragmentManager();
+                        FragmentTransaction ft=fm.beginTransaction();
+                        ft.replace(R.id.main_fragment,fragment);
+                        ft.commit();
+
                         }
 
                         //Toast.makeText(Dashboard.this, menuItem.getTitle(), Toast.LENGTH_SHORT).show();
